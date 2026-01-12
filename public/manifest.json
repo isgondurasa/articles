@@ -1,0 +1,15 @@
+{
+  "name": "Hugo ʕ•ᴥ•ʔ Bear Blog",
+  "short_name": "Hugo ʕ•ᴥ•ʔ Bear Blog",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "512x512"
+    }
+  ]
+}

@@ -1,4 +1,16 @@
-<pre class="mermaid">
-    {{ .Inner | htmlEscape | safeHTML }}
-  </pre>
-  {{ .Page.Store.Set "hasMermaid" true }}
+{{- /* remove whitespaces */ -}}
+<pre class="mermaid">{{ .Inner | htmlEscape | safeHTML -}}</pre>
+{{- if not (.Page.Store.Get "mermaid") -}}
+  {{- /* Include mermaid only first time */ -}}
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ 
+      startOnLoad: true,
+      theme: 'default',
+      flowchart: {
+        useMaxWidth: true
+      }
+    });
+  </script>
+  {{- .Page.Store.Set "mermaid" true -}}
+{{- end -}}
